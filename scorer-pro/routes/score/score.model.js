@@ -14,12 +14,21 @@ const getScores = (gameId) => {
 };
 
 const addScore = ({ gameId, userId, score }) => {
-  return;
+  return
   {
-    gameId, userId, score;
+    gameId, userId, score
   }
-};
+}
+
+const updateScore = ({ gameId, userId, score }) => {
+    return
+    {
+      gameId, userId, score
+    }
+  }
 
 module.exports = {
   getScores,
+  addScore,
+  updateScore
 };

@@ -1,22 +1,23 @@
 const express = require('express');
-const { getScores } = require('./score.model');
+const { getScores, addScore } = require('./score.model');
 const router = express.Router();
 
 // Get scores by Game ID
 // http://localhost:3000/score
 router.get('/:gameId', (req, res, next)  =>{
     const {gameId} = req.params;
-    const score = getScores(gameId)
+    const scores = getScores(gameId)
   res.json({
-    data : score
+    data : scores
   });
 });
 
 // Add a new score
 router.post('/', (req, res, next)  =>{
     const {gameId , userId , score } = req.body;
+    const savedScore = addScore({gameId , userId , score});
     res.json({
-      message :' Add Scores!  '
+      data : savedScore
     });
   });
 
